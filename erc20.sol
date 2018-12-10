@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-import "./erc20I.sol";
+import "./ERC20Basic.sol";
 
 /**
  * @title ERC20 interface

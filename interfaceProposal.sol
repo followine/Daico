@@ -1,6 +1,6 @@
 pragma solidity ^0.4.18;
 
-import "./basic.sol";
+import "./BasicToken.sol";
 
 contract InterfaceProposal {
 	uint256 public proposalNumber;

@@ -1,7 +1,7 @@
 pragma solidity ^0.4.18;
 
-import "./owner.sol";
-import "./authorize.sol";
+import "./Ownable.sol";
+import "./Authorizable.sol";
 
 /**
  * @title Startable

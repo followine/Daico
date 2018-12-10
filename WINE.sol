@@ -4,14 +4,14 @@ pragma solidity ^0.4.18;
  * Followine Token (WINE). More info www.followine.io
  */
 
-import "./standard.sol";
-import "./start.sol";
-import "./human.sol";
-import "./burn.sol";
-import "./origin.sol";
-import "./math.sol";
-import "./voter.sol";
-import "./fiat.sol";
+import "./StandardToken.sol";
+import "./StartToken.sol";
+import "./HumanStandardToken.sol";
+import "./BurnToken.sol";
+import "./OriginToken.sol";
+import "./SafeMath.sol";
+import "./Voter.sol";
+import "./FiatContract.sol";
 
 contract WINE is StandardToken, StartToken, HumanStandardToken, BurnToken, OriginToken, Voter {
 

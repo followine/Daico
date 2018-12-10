@@ -1,8 +1,8 @@
 pragma solidity ^0.4.18;
 
-import "./basic.sol";
-import "./interfaceProposal.sol";
-import "./math.sol";
+import "./BasicToken.sol";
+import "./InterfaceProposal.sol";
+import "./SafeMath.sol";
 
 contract proposal is InterfaceProposal, BasicToken {
 	using SafeMath for uint256;
