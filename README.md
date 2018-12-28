@@ -4,6 +4,6 @@ Download Followine Whitepaper: [Italian](http://followine.io/libs/file/followine
 
 # Smart Contract Functions:
 
-![Followine Smart Contract Functions](https://followine.io/libs/img/func.jpg)
+![Followine Smart Contract Functions](https://followine.io/libs/img/func1.jpg)
 
 
