@@ -18,15 +18,17 @@ contract StartToken is Startable, StandardToken {
 
     mapping( address => Pay[] ) log;
 
-    mapping( address => uint256) transferredCoin;
-
 
   function addLog(address id, uint256 _x, uint256 _y, uint256 _z) internal {
         log[id].push(Pay(_x,_y,_z));
   }
 
-  function addTransferredCoin(address id, uint256 _x) private {
-        transferredCoin[id] = transferredCoin[id] + _x;
+  function removeLog(address id, uint256 _x) internal {
+        while (_x<log[id].length-1) {
+            log[id][_x] = log[id][_x+1];
+            _x++;
+        }
+        log[id].length--;
   }
 
   function getFreeCoin(address field) private view returns (uint256){
@@ -103,7 +105,6 @@ contract StartToken is Startable, StandardToken {
                 totalValue += value;
             }
         }
-        totalValue = totalValue - transferredCoin[field];
         return totalValue;
   }
 
@@ -117,6 +118,7 @@ contract StartToken is Startable, StandardToken {
             }else{
                 val = val - value;
                 log[field][i].value = 0;
+				removeLog(field,i);
             }
         }
   }
@@ -129,7 +131,7 @@ contract StartToken is Startable, StandardToken {
         if( getFreeCoin(msg.sender) >= _value ){
             if( super.transfer(_to, _value) ){
                 addLog(_to,now,_value,0);
-                addTransferredCoin(msg.sender,_value);
+				deleteCoin(msg.sender,_value);
                 return true;
             }else{
                 return false;
@@ -147,7 +149,7 @@ contract StartToken is Startable, StandardToken {
         if( getFreeCoin(_from) >= _value ){
             if( super.transferFrom(_from, _to, _value) ){
                 addLog(_to,now,_value,0);
-                addTransferredCoin(_from,_value);
+				deleteCoin(msg.sender,_value);
                 return true;
             }else{
                 return false;
